@@ -58,7 +58,7 @@
           <v-checkbox v-model="descuento" label="Descuento de Mondelez"></v-checkbox>
         </v-col>
       </v-row>
-      <v-btn class="mt-10" color="primary" rounded to="/protection">Enviar Nuevo Cliente</v-btn>
+      <v-btn class="my-10" color="primary" rounded to="/protection">Enviar Nuevo Cliente</v-btn>
     </v-container>
   </v-form>
 </template>

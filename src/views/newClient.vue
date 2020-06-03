@@ -58,12 +58,13 @@
           <v-checkbox v-model="descuento" label="Descuento de Mondelez"></v-checkbox>
         </v-col>
       </v-row>
-      <v-btn class="my-10" color="primary" rounded to="/protection">Enviar Nuevo Cliente</v-btn>
+      <v-btn class="my-10" color="primary" rounded @click="crearCliente">Enviar Nuevo Cliente</v-btn>
     </v-container>
   </v-form>
 </template>
 
 <script>
+import API from "@/services/api.js";
 export default {
   data: () => ({
     tipoDePago: ["Contado", "Credito"],
@@ -86,6 +87,33 @@ export default {
     cargo: null,
     copias: null,
     pago: "Contado"
-  })
+  }),
+  methods: {
+    crearCliente() {
+      const newClient = {
+        ruta: this.ruta,
+        zona: this.zona,
+        dni: this.dni,
+        razonSocial: this.razonSocial,
+        nombre: this.nombre,
+        direccion: this.direccion,
+        cp: this.cp,
+        localidad: this.localidad,
+        municipio: this.municipio,
+        provincia: this.provincia,
+        telefono: this.telefono,
+        email: this.email,
+        horario: this.horario,
+        contacto: this.contacto,
+        cargo: this.cargo,
+        copias: this.copias,
+        descuento: this.descuento
+      };
+      API.createClient(newClient).then(response => {
+        console.log(response);
+        this.$router.push(`/protection/${response.id}`);
+      });
+    }
+  }
 };
 </script>

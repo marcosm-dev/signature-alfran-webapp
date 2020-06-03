@@ -18,7 +18,7 @@ const routes = [
     component: NewClient
   },
   {
-    path: '/protection',
+    path: '/protection/:id',
     name: 'Protection',
     component: Protection
   }

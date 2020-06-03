@@ -2,7 +2,7 @@
   <v-app id="app">
     <div>
       <v-card class="mx-auto overflow-hidden">
-        <v-app-bar v-if="logged" color="light-blue darken-3" dark>
+        <v-app-bar v-if="loged" color="light-blue darken-3" dark>
           <v-app-bar-nav-icon @click="drawer = true" x-large></v-app-bar-nav-icon>
 
           <v-toolbar-title class="empresa">Alfran Archipielago</v-toolbar-title>
@@ -25,7 +25,7 @@
       </v-card>
     </div>
     <template>
-      <v-footer v-if="logged" dark padless>
+      <v-footer v-if="loged" dark padless>
         <v-card color="light-blue darken-3" class="flex" flat tile>
           <v-card-text class="py-2 white--text text-center">
             {{ new Date().getFullYear() }} —
@@ -40,7 +40,7 @@
 export default {
   name: "Home",
   data: () => ({
-    logged: localStorage.token,
+    loged: localStorage.token,
     drawerData: [
       {
         name: "Nuevo cliente",
@@ -64,7 +64,14 @@ export default {
       }
     ],
     drawer: false
-  })
+  }),
+  computed: {
+    listener() {
+      if (localStorage.token) {
+        return (this.loged = true);
+      }
+    }
+  }
 };
 </script>
 

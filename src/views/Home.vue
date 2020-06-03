@@ -20,13 +20,26 @@
 </template>
 
 <script>
+import API from "@/services/api.js";
+
 export default {
   data: () => ({
-    dialog: false
+    dialog: false,
+    user: "Alfran",
+    password: "af1234"
   }),
   methods: {
     login() {
-      alert("dentro");
+      let user = {
+        identifier: this.user,
+        password: this.password
+      };
+      API.login(user)
+        .then(user => {
+          localStorage.setItem("token", user.jwt);
+          this.$router.push("/newclient");
+        })
+        .catch(err => console.error(err));
     }
   }
 };

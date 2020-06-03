@@ -52,15 +52,15 @@
         <div class="mt-10">
           <p>
             Nombre fiscal:
-            <span></span>
+            <span v-if="client">{{client.razonSocial}}</span>
           </p>
           <p>
             Nombre comercial:
-            <span></span>
+            <span>{{client.nombre}}</span>
           </p>
           <p>
             NIF/ CIF / NIE/ Pasaporte:
-            <span></span>
+            <span>{{client.dni}}</span>
           </p>
           <p>
             Nombre y apellidos del Cliente:
@@ -121,6 +121,8 @@
 </template>
 
 <script>
+import API from "@/services/api.js";
+
 export default {
   data: () => ({
     fullName: "",
@@ -128,7 +130,8 @@ export default {
     dialog: false,
     options: {
       penColor: "#000000"
-    }
+    },
+    client: false
   }),
   methods: {
     clear() {
@@ -136,7 +139,6 @@ export default {
     },
     save() {
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
-      console.log(isEmpty);
       console.log(data);
       this.data = data;
     },
@@ -150,6 +152,9 @@ export default {
         penColor: "#c0f"
       };
     }
+  },
+  async created() {
+    this.client = await API.getClient(this.$route.params.id);
   }
 };
 </script>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import NewClient from '../views/newClient.vue'
+import Protection from '../views/DataProtection.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/newclient',
     name: 'New',
     component: NewClient
+  },
+  {
+    path: '/protection',
+    name: 'Protection',
+    component: Protection
   }
 ]
 

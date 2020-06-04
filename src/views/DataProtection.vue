@@ -113,98 +113,88 @@
         </div>
       </div>
     </v-col>
-    <v-row class="justify-center text-center">
+    <v-row class="justify-center text-center mt-n10">
       <v-col cols="12" ref="clientData">
-        <v-simple-table :dense="dense" :fixed-header="fixedHeader" class="tabla">
-          <thead>
+        <h1>NUEVO CLIENTE</h1>
+        <v-simple-table class="justify-center d-flex table">
+          <tbody align="start">
             <tr>
-              <td colspan="2" class="t-title display-1 font-weight-medium">FICHA CLIENTE NUEVO</td>
-            </tr>
-          </thead>
-          <tbody class="body">
-            <tr>
-              <span class="align">Nº RUTA:</span>
+              <td>Nº RUTA:</td>
               <td width="60%">{{client.ruta}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">Nº ZONA:</span>
+            <tr>
+              <td>Nº ZONA:</td>
               <td>{{client.zona}}</td>
             </tr>
             <tr>
-              <span class="align">NIF/CIF:</span>
+              <td>NIF/CIF:</td>
               <td>{{client.dni}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">RAZON SOCIAL:</span>
+            <tr>
+              <td>RAZON SOCIAL:</td>
               <td>{{client.razonSocial}}</td>
             </tr>
             <tr>
-              <span class="align">NOMBRE COMERCIAL:</span>
+              <td>NOMBRE COMERCIAL:</td>
               <td>{{client.nombre}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">DIRECCION:</span>
+            <tr>
+              <td>DIRECCION:</td>
               <td>{{client.direccion}}</td>
             </tr>
             <tr>
-              <span class="align">CODIGO POSTAL:</span>
+              <td>CODIGO POSTAL:</td>
               <td>{{client.cp}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">MUNICIPIO:</span>
+            <tr>
+              <td>MUNICIPIO:</td>
               <td>{{client.municipio}}</td>
             </tr>
             <tr>
-              <span class="align">LOCALIDAD:</span>
+              <td>LOCALIDAD:</td>
               <td>{{client.localidad}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">PROVINCIA:</span>
+            <tr>
+              <td>PROVINCIA:</td>
               <td>{{client.provincia}}</td>
             </tr>
             <tr>
-              <span class="align">TELEFONO:</span>
+              <td>TELEFONO:</td>
               <td>{{client.telefono}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">EMAIL:</span>
+            <tr>
+              <td>EMAIL:</td>
               <td v-if="client.email">{{client.email}}</td>
             </tr>
             <tr>
-              <span class="align">HORARIO REPARTO:</span>
+              <td>HORARIO REPARTO:</td>
               <td>{{client.horario}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">PERSONA CONTACTO:</span>
+            <tr>
               <td>{{client.contacto}}</td>
+              <td>19 años</td>
             </tr>
             <tr>
-              <span class="align">CARGO:</span>
+              <td>CARGO:</td>
               <td>{{client.cargo}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">Nº COPIAS:</span>
+            <tr>
+              <td>Nº COPIAS:</td>
               <td>{{client.copias}}</td>
             </tr>
             <tr>
-              <span class="align">CONDICIONES DE PAGO:</span>
+              <td>CONDICIONES DE PAGO:</td>
               <td>{{client.pago}}</td>
             </tr>
-            <tr class="grey">
-              <span class="align">DESCUENTO MONDELEZ:</span>
+            <tr>
+              <td>DESCUENTO MONDELEZ:</td>
               <td v-if="descuento === true">SI</td>
               <td v-else>No</td>
             </tr>
           </tbody>
         </v-simple-table>
       </v-col>
-      <v-btn
-        v-show="botonShow"
-        class="my-10"
-        color="light-blue darken-3"
-        @click="downloadPDF"
-        rounded
-      >Descargar</v-btn>
+      <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Descargar</v-btn>
     </v-row>
   </v-row>
 </template>
@@ -234,20 +224,20 @@ export default {
   }),
   methods: {
     downloadPDF(quality = 1) {
-      this.botonShow = false;
       const doc = new jsPDF("p", "mm", "a4");
       var canvasElement = document.createElement("canvas");
       var canvasElement2 = document.createElement("canvas");
-      const page2 = this.$refs.clientData;
       html2canvas(this.$refs.content, { canvas: canvasElement }).then(function(
         canvas
       ) {
         doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
         doc.addPage();
-        html2canvas(page2, { canvas: canvasElement2 }).then(function(canvas) {
-          doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-          doc.save("proteccion.pdf");
-        });
+        html2canvas(this.$refs.clientData, { canvas: canvasElement2 }).then(
+          function(canvas) {
+            doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
+            doc.save("proteccion.pdf");
+          }
+        );
       });
     },
     clear() {
@@ -288,29 +278,20 @@ export default {
   margin-left: 10%;
   margin-right: 10%;
 }
-.tabla {
-  width: 90%;
-  justify-content: center;
-  margin: auto;
-  margin-top: 50px;
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-tr {
-  font-weight: 500;
-  font-size: 20px;
-  height: 10px;
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
-td {
-  font-size: 20px !important;
-  font-weight: 400;
-}
-.t-title {
-  background-color: grey;
-  color: white;
-}
-.body {
-  text-align: start;
-}
-.align {
-  margin-left: 40px;
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>

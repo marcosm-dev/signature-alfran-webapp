@@ -37,7 +37,7 @@
           <v-text-field v-model="telefono" label="Teléfono" required></v-text-field>
         </v-col>
         <v-col cols="7">
-          <v-text-field v-model="email" label="E-mail" required></v-text-field>
+          <v-text-field v-model="email" label="E-mail"></v-text-field>
         </v-col>
         <v-col cols="5">
           <v-text-field v-model="horario" label="Horario de reparto" required></v-text-field>
@@ -60,6 +60,7 @@
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Enviar Nuevo Cliente</v-btn>
     </v-container>
+    <h1>Todos los campos son obligatorios</h1>
   </v-form>
 </template>
 

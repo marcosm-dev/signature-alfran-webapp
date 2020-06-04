@@ -2,10 +2,11 @@
   <v-app id="app">
     <div>
       <v-card class="mx-auto overflow-hidden">
-        <v-app-bar v-if="loged" color="light-blue darken-3" dark>
+        <v-app-bar v-if="!loged" color="light-blue darken-3" dark>
           <v-app-bar-nav-icon @click="drawer = true" x-large></v-app-bar-nav-icon>
-
           <v-toolbar-title class="empresa">Alfran Archipielago</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-icon @click="logout" x-large>mdi-exit-to-app</v-icon>
         </v-app-bar>
         <v-content>
           <router-view></router-view>
@@ -40,7 +41,7 @@
 export default {
   name: "Home",
   data: () => ({
-    loged: localStorage.token,
+    loged: false,
     drawerData: [
       {
         name: "Nuevo cliente",
@@ -65,11 +66,10 @@ export default {
     ],
     drawer: false
   }),
-  computed: {
-    listener() {
-      if (localStorage.token) {
-        return (this.loged = true);
-      }
+  methods: {
+    logout() {
+      this.$router.push("/");
+      localStorage.clear();
     }
   }
 };

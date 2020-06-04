@@ -15,12 +15,28 @@ const routes = [
   {
     path: '/newclient',
     name: 'New',
-    component: NewClient
+    component: NewClient,
+    beforeEnter(to, from, next) {
+      if (!localStorage.token) {
+        next({
+          name: 'Home'
+        })
+      }
+      next()
+    }
   },
   {
     path: '/protection/:id',
     name: 'Protection',
-    component: Protection
+    component: Protection,
+    beforeEnter(to, from, next) {
+      if (!localStorage.token) {
+        next({
+          name: 'Home'
+        })
+      }
+      next()
+    }
   }
 ]
 

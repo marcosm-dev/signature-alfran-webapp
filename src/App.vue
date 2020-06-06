@@ -51,17 +51,12 @@ export default {
       {
         name: "Nuevo documento",
         icon: "mdi-file-document",
-        to: "/newdocument"
+        to: "/newproteccion"
       },
       {
         name: "Editar documento",
         icon: "mdi-file-document-edit",
         to: "/editclient"
-      },
-      {
-        name: "Ver documentos",
-        icon: "mdi-search",
-        to: "/search"
       }
     ],
     drawer: false

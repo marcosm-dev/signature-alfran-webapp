@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import NewClient from '../views/newClient.vue'
-import Protection from '../views/DataProtection.vue'
+import NewClient from '../views/New-Client.vue'
+import Client from '../views/Client.vue'
+import Proteccion from '../views/Proteccion'
 
 Vue.use(VueRouter)
 
@@ -14,7 +15,7 @@ const routes = [
   },
   {
     path: '/newclient',
-    name: 'New',
+    name: 'NewClient',
     component: NewClient,
     beforeEnter(to, from, next) {
       if (!localStorage.token) {
@@ -26,9 +27,9 @@ const routes = [
     }
   },
   {
-    path: '/protection/:id',
-    name: 'Protection',
-    component: Protection,
+    path: '/client/:id',
+    name: 'Client',
+    component: Client,
     beforeEnter(to, from, next) {
       if (!localStorage.token) {
         next({
@@ -37,7 +38,20 @@ const routes = [
       }
       next()
     }
-  }
+  },
+  {
+    path: '/newproteccion',
+    name: 'Proteccion',
+    component: Proteccion,
+    beforeEnter(to, from, next) {
+      if (!localStorage.token) {
+        next({
+          name: 'Home'
+        })
+      }
+      next()
+    }
+  },
 ]
 
 const router = new VueRouter({

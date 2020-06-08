@@ -83,35 +83,15 @@
         <p class="mt-10">FIRMA:</p>
         <span>
           <v-col cols="4" class="text-center">
-            <v-dialog v-model="dialog">
-              <template v-slot:activator="{ on }">
-                <v-btn v-show="!data" v-on="on" rounded color="grey">FIRMA AQUI</v-btn>
-              </template>
-
-              <v-card height="500px">
-                <v-card-title class="headline grey lighten-2" primary-title>Protección de datos</v-card-title>
-                <v-container class="pa-0 d-flex justify-center">
-                  <v-row class="text-center">
-                    <v-col cols="12" class="mb-10">
-                      <VueSignaturePad
-                        id="signature"
-                        width="100%"
-                        height="300px"
-                        ref="signaturePad"
-                        :options="options"
-                      />
-                    </v-col>
-                    <v-spacer></v-spacer>
-                    <v-btn outlined @click="clear">Limpiar</v-btn>
-                    <v-spacer></v-spacer>
-                    <v-btn outlined @click="save">Guardar</v-btn>
-                  </v-row>
-                </v-container>
-                <v-divider></v-divider>
-              </v-card>
-            </v-dialog>
-            <v-img width="300px" height="150px" :src="data" />
+            <VueSignaturePad
+              id="signature"
+              width="100%"
+              height="300px"
+              ref="signaturePad"
+              :options="options"
+            />
           </v-col>
+          <v-img width="300px" height="150px" :src="data" />
         </span>
       </div>
     </div>
@@ -133,7 +113,7 @@ export default {
     options: {
       penColor: "rgb(0, 0, 0)",
       dotSize: 2,
-      minWidth: 2,
+      minWidth: 1,
       throttle: 32,
       velocityFilterWeight: 1
     },

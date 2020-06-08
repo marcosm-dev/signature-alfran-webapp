@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto overflow-hidden">
-    <v-app-bar app color="light-blue darken-3" dark>
+    <v-app-bar color="light-blue darken-3" dark app>
       <v-app-bar-nav-icon @click="drawer = true" x-large></v-app-bar-nav-icon>
       <v-toolbar-title class="empresa">Alfran Archipielago</v-toolbar-title>
       <v-spacer></v-spacer>

@@ -1,12 +1,14 @@
 <template>
-  <div class="position">
+  <v-container class="position">
     <v-img src="@/assets/LOGO.png" />
-    <div class="ml-10">
-      <v-text-field v-model="user" label="Usuario"></v-text-field>
-      <v-text-field v-model="password" label="Contraseña"></v-text-field>
-      <v-btn color="pink" max-height="40px" @click="login" rounded dark>Login</v-btn>
-    </div>
-  </div>
+    <v-row class="ml-10">
+      <v-col>
+        <v-text-field v-model="user" label="Usuario"></v-text-field>
+        <v-text-field v-model="password" label="Contraseña"></v-text-field>
+        <v-btn color="pink" max-height="40px" @click="login" rounded dark>Login</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -14,8 +16,8 @@ import API from "@/services/api.js";
 
 export default {
   data: () => ({
-    user: "Alfran",
-    password: "af1234"
+    user: "alfran",
+    password: "af1311"
   }),
   methods: {
     login() {

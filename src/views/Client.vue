@@ -35,7 +35,7 @@
               </tr>
               <tr>
                 <td>CODIGO POSTAL:</td>
-                <td>{{client.cp}}</td>
+                <td>{{client.postalCode}}</td>
               </tr>
               <tr>
                 <td>MUNICIPIO:</td>

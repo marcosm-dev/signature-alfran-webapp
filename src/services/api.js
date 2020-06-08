@@ -16,7 +16,7 @@ export default {
     return response.data
   },
   async createClient(newClient) {
-    const response = await API.post('/pd-databases', {
+    const response = await API.post('/clients', {
       headers: {
         Authorization:
           `Bearer ${localStorage.token}`, // eslint-disable-line
@@ -26,7 +26,7 @@ export default {
     return response.data
   },
   async getClient(clientId) {
-    const response = await API.get('/pd-databases/' + clientId, {
+    const response = await API.get('/clients/' + clientId, {
       headers: {
         Authorization:
           `Bearer ${localStorage.token}`, // eslint-disable-line

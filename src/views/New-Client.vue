@@ -1,7 +1,7 @@
 <template>
-  <v-form class="text-center mt-5">
-    <h1 class="display-1">CLIENTE NUEVO</h1>
-    <v-container>
+  <v-container fluid>
+    <v-form class="text-center mt-5">
+      <h1 class="display-1">CLIENTE NUEVO</h1>
       <v-row>
         <v-col cols="6">
           <v-text-field v-model="ruta" label="Nº Ruta" required></v-text-field>
@@ -59,9 +59,9 @@
         </v-col>
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Enviar Nuevo Cliente</v-btn>
-    </v-container>
-    <h1>* Todos los campos son obligatorios</h1>
-  </v-form>
+      <h1>* Todos los campos son obligatorios</h1>
+    </v-form>
+  </v-container>
 </template>
 
 <script>

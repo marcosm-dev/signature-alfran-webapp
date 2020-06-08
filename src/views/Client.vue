@@ -1,94 +1,92 @@
 <template>
-  <v-container>
+  <v-row class="justify-center text-center">
+    <v-col ref="content">
+      <Proteccion v-if="client" :client="client" />
+    </v-col>
     <v-row class="justify-center text-center">
-      <v-col ref="content">
-        <Proteccion v-if="client" :client="client" />
+      <v-col cols="12" ref="clientData">
+        <h1>NUEVO CLIENTE</h1>
+        <v-simple-table v-if="client" class="justify-center d-flex table">
+          <tbody align="start">
+            <tr>
+              <td>Nº RUTA:</td>
+              <td width="60%">{{client.ruta}}</td>
+            </tr>
+            <tr>
+              <td>Nº ZONA:</td>
+              <td>{{client.zona}}</td>
+            </tr>
+            <tr>
+              <td>NIF/CIF:</td>
+              <td>{{client.dni}}</td>
+            </tr>
+            <tr>
+              <td>RAZON SOCIAL:</td>
+              <td>{{client.razonSocial}}</td>
+            </tr>
+            <tr>
+              <td>NOMBRE COMERCIAL:</td>
+              <td>{{client.nombre}}</td>
+            </tr>
+            <tr>
+              <td>DIRECCION:</td>
+              <td>{{client.direccion}}</td>
+            </tr>
+            <tr>
+              <td>CODIGO POSTAL:</td>
+              <td>{{client.postalCode}}</td>
+            </tr>
+            <tr>
+              <td>MUNICIPIO:</td>
+              <td>{{client.municipio}}</td>
+            </tr>
+            <tr>
+              <td>LOCALIDAD:</td>
+              <td>{{client.localidad}}</td>
+            </tr>
+            <tr>
+              <td>PROVINCIA:</td>
+              <td>{{client.provincia}}</td>
+            </tr>
+            <tr>
+              <td>TELEFONO:</td>
+              <td>{{client.telefono}}</td>
+            </tr>
+            <tr>
+              <td>EMAIL:</td>
+              <td v-if="client.email">{{client.email}}</td>
+            </tr>
+            <tr>
+              <td>HORARIO REPARTO:</td>
+              <td>{{client.horario}}</td>
+            </tr>
+            <tr>
+              <td>{{client.contacto}}</td>
+              <td>19 años</td>
+            </tr>
+            <tr>
+              <td>CARGO:</td>
+              <td>{{client.cargo}}</td>
+            </tr>
+            <tr>
+              <td>Nº COPIAS:</td>
+              <td>{{client.copias}}</td>
+            </tr>
+            <tr>
+              <td>CONDICIONES DE PAGO:</td>
+              <td>{{client.pago}}</td>
+            </tr>
+            <tr>
+              <td>DESCUENTO MONDELEZ:</td>
+              <td v-if="descuento === true">SI</td>
+              <td v-else>No</td>
+            </tr>
+          </tbody>
+        </v-simple-table>
       </v-col>
-      <v-row class="justify-center text-center mt-n10">
-        <v-col cols="12" ref="clientData">
-          <h1>NUEVO CLIENTE</h1>
-          <v-simple-table v-if="client" class="justify-center d-flex table">
-            <tbody align="start">
-              <tr>
-                <td>Nº RUTA:</td>
-                <td width="60%">{{client.ruta}}</td>
-              </tr>
-              <tr>
-                <td>Nº ZONA:</td>
-                <td>{{client.zona}}</td>
-              </tr>
-              <tr>
-                <td>NIF/CIF:</td>
-                <td>{{client.dni}}</td>
-              </tr>
-              <tr>
-                <td>RAZON SOCIAL:</td>
-                <td>{{client.razonSocial}}</td>
-              </tr>
-              <tr>
-                <td>NOMBRE COMERCIAL:</td>
-                <td>{{client.nombre}}</td>
-              </tr>
-              <tr>
-                <td>DIRECCION:</td>
-                <td>{{client.direccion}}</td>
-              </tr>
-              <tr>
-                <td>CODIGO POSTAL:</td>
-                <td>{{client.postalCode}}</td>
-              </tr>
-              <tr>
-                <td>MUNICIPIO:</td>
-                <td>{{client.municipio}}</td>
-              </tr>
-              <tr>
-                <td>LOCALIDAD:</td>
-                <td>{{client.localidad}}</td>
-              </tr>
-              <tr>
-                <td>PROVINCIA:</td>
-                <td>{{client.provincia}}</td>
-              </tr>
-              <tr>
-                <td>TELEFONO:</td>
-                <td>{{client.telefono}}</td>
-              </tr>
-              <tr>
-                <td>EMAIL:</td>
-                <td v-if="client.email">{{client.email}}</td>
-              </tr>
-              <tr>
-                <td>HORARIO REPARTO:</td>
-                <td>{{client.horario}}</td>
-              </tr>
-              <tr>
-                <td>{{client.contacto}}</td>
-                <td>19 años</td>
-              </tr>
-              <tr>
-                <td>CARGO:</td>
-                <td>{{client.cargo}}</td>
-              </tr>
-              <tr>
-                <td>Nº COPIAS:</td>
-                <td>{{client.copias}}</td>
-              </tr>
-              <tr>
-                <td>CONDICIONES DE PAGO:</td>
-                <td>{{client.pago}}</td>
-              </tr>
-              <tr>
-                <td>DESCUENTO MONDELEZ:</td>
-                <td v-if="descuento === true">SI</td>
-                <td v-else>No</td>
-              </tr>
-            </tbody>
-          </v-simple-table>
-        </v-col>
-        <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Descargar</v-btn>
-      </v-row>
+      <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Descargar</v-btn>
     </v-row>
-  </v-container>
+  </v-row>
 </template>
 
 <script>

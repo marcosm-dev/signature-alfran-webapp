@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-container fluid>
     <Proteccion class="mt-12" />
-  </div>
+  </v-container>
 </template>
 
 <script>

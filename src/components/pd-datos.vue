@@ -82,20 +82,30 @@
         </div>
         <p class="mt-10">FIRMA:</p>
         <span>
-          <v-col cols="4" class="text-center">
-            <VueSignaturePad
-              id="signature"
-              width="100%"
-              height="300px"
-              ref="signaturePad"
-              :options="options"
-            />
-          </v-col>
-          <v-img width="300px" height="150px" :src="data" />
+          <v-row align="center">
+            <v-col cols="4" class="text-center">
+              <v-card v-if="!data" height="300" width="400px">
+                <v-row justify="center">
+                  <v-btn color="success" class="mt-12" @click="overlay = !overlay">FIRMA</v-btn>
+                  <v-overlay :absolute="absolute" :value="overlay">
+                    <VueSignaturePad
+                      id="signature"
+                      width="400px"
+                      height="300px"
+                      ref="signaturePad"
+                      :options="options"
+                    />
+                  </v-overlay>
+                </v-row>
+              </v-card>
+              <v-img v-else width="300px" height="150px" :src="data" />
+            </v-col>
+          </v-row>
+          <v-btn v-if="overlay" color="success" @click="save">Guardar</v-btn>
         </span>
       </div>
     </div>
-    <v-btn v-if="descarga" @click="downloadPDF">Descargar</v-btn>
+    <v-btn color="primary" v-if="descarga" @click="downloadPDF" rounded>Descargar</v-btn>
   </div>
 </template>
 
@@ -108,7 +118,8 @@ export default {
   data: () => ({
     data: "",
     fullName: "",
-    dialog: false,
+    absolute: true,
+    overlay: false,
     descarga: true,
     options: {
       penColor: "rgb(0, 0, 0)",
@@ -130,7 +141,7 @@ export default {
       this.$refs.signaturePad.clearSignature();
     },
     save() {
-      this.dialog = false;
+      this.overlay = false;
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
       this.data = data;
     },

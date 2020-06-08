@@ -95,7 +95,7 @@ export default {
         ruta: this.ruta,
         zona: this.zona,
         dni: this.dni,
-        razonSocial: this.razonSocial,
+        razonSocial: this.razon_social,
         nombre: this.nombre,
         direccion: this.direccion,
         cp: this.cp,

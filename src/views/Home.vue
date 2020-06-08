@@ -1,6 +1,6 @@
 <template>
   <v-container class="position">
-    <!-- <v-img src="@/assets/LOGO.png" /> -->
+    <v-img src="@/assets/LOGO.png" />
     <v-row class="ml-10">
       <v-col>
         <v-text-field v-model="user" label="Usuario"></v-text-field>

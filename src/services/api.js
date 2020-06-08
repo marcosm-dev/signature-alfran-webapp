@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: 'http://localhost:1337/', // process.env.VUE_APP_API_URL,
+  baseURL: 'https://signature-pd.herokuapp.com/', // process.env.VUE_APP_API_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'

@@ -3,9 +3,15 @@
     <v-img src="@/assets/LOGO.png" />
     <v-row class="ml-10">
       <v-col>
-        <v-text-field v-model="user" label="Usuario"></v-text-field>
-        <v-text-field v-model="password" type="password" label="Contraseña"></v-text-field>
-        <v-btn color="pink" max-height="40px" @click="login" rounded dark>Login</v-btn>
+        <v-card class="elevation-4 pa-5">
+          <v-form>
+            <v-text-field v-model="user" label="Usuario"></v-text-field>
+            <v-text-field v-model="password" type="password" label="Contraseña"></v-text-field>
+          </v-form>
+          <v-card-actions>
+            <v-btn color="pink" max-height="40px" @click="login" rounded dark>Login</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>

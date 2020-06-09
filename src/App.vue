@@ -4,7 +4,7 @@
       <router-view />
     </component>
     <v-footer dark padless app>
-      <v-card color="light-blue darken-3" class="flex" flat tile>
+      <v-card color="light-blue darken-4" class="flex" flat tile>
         <v-card-text class="py-2 white--text text-center">
           {{ new Date().getFullYear() }} —
           <strong>Proteccion de Datos</strong>

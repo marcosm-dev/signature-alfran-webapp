@@ -60,7 +60,6 @@
         <v-col cols="6">
           <v-text-field v-model="observaciones" label="Observaciones"></v-text-field>
         </v-col>
-        OBSERVACIONES{{observaciones}}
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Firmar proteccion</v-btn>
       <h1>* Todos los campos son obligatorios</h1>

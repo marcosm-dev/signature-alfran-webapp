@@ -6,6 +6,7 @@
 
 <script>
 import Proteccion from "@/components/pd-datos.vue";
+
 export default {
   components: {
     Proteccion

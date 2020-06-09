@@ -1,15 +1,6 @@
 <template>
-  <v-card class="mx-auto overflow-hidden">
-    <v-app-bar color="light-blue darken-3" dark app>
-      <v-app-bar-nav-icon @click="drawer = true" x-large></v-app-bar-nav-icon>
-      <v-toolbar-title class="empresa">Alfran Archipielago</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-icon @click="logout" x-large>mdi-exit-to-app</v-icon>
-    </v-app-bar>
-    <v-content>
-      <router-view></router-view>
-    </v-content>
-    <v-navigation-drawer app v-model="drawer" absolute temporary>
+  <div>
+    <v-navigation-drawer app v-model="drawer">
       <v-list nav dense>
         <v-list-item-group active-class="light-blue darken-1--text text--accent-4">
           <v-list-item v-for="(data, i) in drawerData " :key="i" :to="data.to">
@@ -21,7 +12,18 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
+    <v-card class="mx-auto overflow-hidden">
+      <v-app-bar color="light-blue darken-3" dark app>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" x-large></v-app-bar-nav-icon>
+        <v-toolbar-title class="empresa">Alfran Archipielago</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-icon @click="logout" x-large>mdi-exit-to-app</v-icon>
+      </v-app-bar>
+      <v-content>
+        <router-view></router-view>
+      </v-content>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -30,17 +32,17 @@ export default {
   data: () => ({
     drawerData: [
       {
-        name: "Nuevo cliente",
+        name: "Nuevo Cliente",
         icon: "mdi-newspaper-plus",
         to: "/newclient"
       },
       {
-        name: "Nuevo proteccion",
+        name: "Nuevo Proteccion",
         icon: "mdi-file-document",
         to: "/newproteccion"
       }
     ],
-    drawer: false
+    drawer: null
   }),
   methods: {
     logout() {

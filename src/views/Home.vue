@@ -1,8 +1,10 @@
 <template>
-  <v-container class="position">
-    <v-img src="@/assets/LOGO.png" />
-    <v-row class="ml-10">
-      <v-col>
+  <v-container>
+    <v-row class="position" align="center" justify="center">
+      <v-col cols="6">
+        <v-img height="230px" src="@/assets/LOGO.png" />
+      </v-col>
+      <v-col cols="4">
         <v-card class="elevation-4 pa-5">
           <v-form>
             <v-text-field v-model="user" label="Usuario"></v-text-field>
@@ -44,10 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .position {
-  margin: auto;
-  display: flex;
-  width: 50%;
-  height: 50%;
-  margin-top: 10%;
+  margin-top: 25%;
+  margin-right: 10%;
 }
 </style>

@@ -20,7 +20,7 @@ new Vue({
     $route: {
       immediate: true,
       handler() {
-        document.title = 'Events Tech Website'
+        document.title = 'Proteccion de datos Alfran'
       }
     }
   },

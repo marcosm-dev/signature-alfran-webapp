@@ -58,7 +58,7 @@
           <v-checkbox v-model="descuento" label="Descuento de Mondelez"></v-checkbox>
         </v-col>
       </v-row>
-      <v-btn class="my-10" color="primary" rounded @click="crearCliente">Enviar Nuevo Cliente</v-btn>
+      <v-btn class="my-10" color="primary" rounded @click="crearCliente">Firmar proteccion</v-btn>
       <h1>* Todos los campos son obligatorios</h1>
     </v-form>
   </v-container>

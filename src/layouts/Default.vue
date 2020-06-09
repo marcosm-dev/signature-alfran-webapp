@@ -9,7 +9,7 @@
     <v-content>
       <router-view></router-view>
     </v-content>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer app v-model="drawer" absolute temporary>
       <v-list nav dense>
         <v-list-item-group active-class="light-blue darken-1--text text--accent-4">
           <v-list-item v-for="(data, i) in drawerData " :key="i" :to="data.to">
@@ -35,7 +35,7 @@ export default {
         to: "/newclient"
       },
       {
-        name: "Nuevo documento",
+        name: "Nuevo proteccion",
         icon: "mdi-file-document",
         to: "/newproteccion"
       }

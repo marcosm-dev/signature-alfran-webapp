@@ -98,14 +98,14 @@
                   </v-overlay>
                 </v-row>
               </v-card>
-              <v-img v-else width="300px" height="150px" :src="data" />
+              <v-img v-else width="400px" height="200px" :src="data" />
             </v-col>
           </v-row>
           <v-btn v-if="overlay" color="success" @click="save">Guardar</v-btn>
         </span>
       </div>
     </div>
-    <v-btn color="primary" v-if="descarga" @click="downloadPDF" rounded>Descargar</v-btn>
+    <v-btn color="primary" v-if="!client" @click="downloadPDF" rounded>Descargar</v-btn>
   </div>
 </template>
 
@@ -146,6 +146,7 @@ export default {
       this.data = data;
     },
     downloadPDF(quality = 1) {
+      let docName = this.razonSocial;
       this.descarga = false;
       const doc = new jsPDF("p", "mm", "a4");
       var canvasElement = document.createElement("canvas");
@@ -153,7 +154,7 @@ export default {
         canvas
       ) {
         doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-        doc.save("proteccion.pdf");
+        doc.save(`${docName}.pdf`);
       });
     }
   }

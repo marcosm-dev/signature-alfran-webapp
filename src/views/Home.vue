@@ -47,6 +47,5 @@ export default {
 <style lang="scss" scoped>
 .position {
   margin-top: 25%;
-  margin-left: 10%;
 }
 </style>

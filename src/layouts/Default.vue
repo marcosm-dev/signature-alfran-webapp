@@ -15,7 +15,7 @@
     <v-card class="mx-auto overflow-hidden">
       <v-app-bar color="light-blue darken-4" dark app>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" x-large></v-app-bar-nav-icon>
-        <v-toolbar-title class="empresa">Alfran Archipielago</v-toolbar-title>
+        <v-toolbar-title class="empresa">Alfran Archipiélago</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-icon @click="logout" x-large>mdi-exit-to-app</v-icon>
       </v-app-bar>

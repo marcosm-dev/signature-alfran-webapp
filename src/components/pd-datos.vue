@@ -1,6 +1,8 @@
 <template>
   <div ref="content" class="text-center">
-    <h2 class="mt-10" id="titulo">CONSENTIMIENTO EXPRESO</h2>
+    <br v-if="!descarga" />
+    <br v-if="!descarga" />
+    <h2 id="titulo">CONSENTIMIENTO EXPRESO</h2>
     <div class="text-start mt-5 pd-adjust">
       <p>
         En aras a dar cumplimiento al Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos (RGPD) conjuntamente con la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), y siguiendo las Recomendaciones e Instrucciones emitidas por la Agencia Española de Protección de Datos (A.E.P.D.),
@@ -78,7 +80,7 @@
         <div>
           En
           <input class="city" type="text" label="Las Palmas" />
-          , a {{ new Date().getDay() }} de {{ new Date().getMonth() + 1}} de {{ new Date().getFullYear() }}
+          , a {{ new Date().getDate() }} de {{ new Date().getMonth() + 1}} de {{ new Date().getFullYear() }}
         </div>
         <p class="mt-10">FIRMA:</p>
         <span>
@@ -181,8 +183,8 @@ export default {
   width: 500px;
 }
 .pd-adjust {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .pd-position {
   margin-bottom: 20%;

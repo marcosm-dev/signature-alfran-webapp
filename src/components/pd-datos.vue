@@ -180,7 +180,7 @@ export default {
   width: 100px;
 }
 .fullname {
-  width: 500px;
+  width: 400px;
 }
 .pd-adjust {
   margin-left: 5%;

@@ -1,13 +1,13 @@
 <template>
   <v-row class="justify-center text-center">
     <v-col ref="content">
-      <br v-if="!descarga" />
-      <br v-if="!descarga" />
+      <br />
+      <br />
       <Proteccion v-if="client" :client="client" />
     </v-col>
     <v-row class="justify-center text-center">
       <v-col cols="12" ref="clientData">
-        <h1>NUEVO CLIENTE</h1>
+        <h1 class="mb-10">CLIENTE: {{client.nombre}}</h1>
         <v-simple-table v-if="client" class="justify-center d-flex table">
           <tbody align="start">
             <tr>
@@ -54,17 +54,17 @@
               <td>TELEFONO:</td>
               <td>{{client.telefono}}</td>
             </tr>
-            <tr>
+            <tr v-if="client.email">
               <td>EMAIL:</td>
-              <td v-if="client.email">{{client.email}}</td>
+              <td>{{client.email}}</td>
             </tr>
             <tr>
               <td>HORARIO REPARTO:</td>
               <td>{{client.horario}}</td>
             </tr>
             <tr>
+              <td>CONTACTO:</td>
               <td>{{client.contacto}}</td>
-              <td>19 años</td>
             </tr>
             <tr>
               <td>CARGO:</td>
@@ -80,8 +80,7 @@
             </tr>
             <tr>
               <td>DESCUENTO MONDELEZ:</td>
-              <td v-if="descuento === true">SI</td>
-              <td v-else>No</td>
+              <td>{{client.descuento}}</td>
             </tr>
             <tr v-if="client.observaciones != ''">
               <td>OBSERVACIONES</td>
@@ -103,7 +102,6 @@ import Proteccion from "@/components/pd-datos.vue";
 
 export default {
   data: () => ({
-    descuento: false,
     client: false
   }),
   components: {

@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-row class="position" align="center" justify="center">
-      <v-col cols="6">
-        <v-img height="230px" src="@/assets/LOGO.png" />
-      </v-col>
-      <v-col cols="4">
-        <v-card class="elevation-4 pa-5">
+    <v-card class="elevation-2 position">
+      <v-row align="center" justify="center">
+        <v-col cols="6">
+          <v-img height="230px" src="@/assets/LOGO.png" />
+        </v-col>
+        <v-col cols="4">
           <v-form>
             <v-text-field v-model="user" label="Usuario"></v-text-field>
             <v-text-field v-model="password" type="password" label="Contraseña"></v-text-field>
@@ -13,9 +13,9 @@
           <v-card-actions>
             <v-btn color="pink" max-height="40px" @click="login" rounded dark>Login</v-btn>
           </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
+        </v-col>
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 
@@ -47,6 +47,6 @@ export default {
 <style lang="scss" scoped>
 .position {
   margin-top: 25%;
-  margin-right: 10%;
+  margin-left: 10%;
 }
 </style>

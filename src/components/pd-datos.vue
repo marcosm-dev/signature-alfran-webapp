@@ -83,29 +83,29 @@
         <p class="mt-10">FIRMA:</p>
         <span>
           <v-row align="center">
-            <v-col cols="4" class="text-center">
-              <v-card v-if="!data" height="300" width="400px">
+            <v-col cols="8" class="text-center">
+              <v-card elevation="0" v-if="!data" height="240px" width="500px">
                 <v-row justify="center">
                   <v-btn color="success" class="mt-12" @click="overlay = !overlay">FIRMA</v-btn>
                   <v-overlay :absolute="absolute" :value="overlay">
                     <VueSignaturePad
                       id="signature"
-                      width="400px"
-                      height="300px"
+                      width="500px"
+                      height="250px"
                       ref="signaturePad"
                       :options="options"
                     />
                   </v-overlay>
                 </v-row>
               </v-card>
-              <v-img v-else width="400px" height="200px" :src="data" />
+              <v-img class="mt-n10" v-else width="500px" height="250px" :src="data" />
             </v-col>
           </v-row>
           <v-btn v-if="overlay" color="success" @click="save">Guardar</v-btn>
         </span>
       </div>
     </div>
-    <v-btn color="primary" v-if="!client" @click="downloadPDF" rounded>Descargar</v-btn>
+    <v-btn color="primary" v-if="!client && descarga" @click="downloadPDF" rounded>Descargar</v-btn>
   </div>
 </template>
 
@@ -183,5 +183,8 @@ export default {
 .pd-adjust {
   margin-left: 10%;
   margin-right: 10%;
+}
+.pd-position {
+  margin-bottom: 20%;
 }
 </style>

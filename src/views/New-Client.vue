@@ -57,7 +57,7 @@
         <v-col cols="6">
           <v-text-field v-model="descuento" label="Descuento"></v-text-field>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12">
           <v-text-field v-model="observaciones" label="Observaciones"></v-text-field>
         </v-col>
       </v-row>

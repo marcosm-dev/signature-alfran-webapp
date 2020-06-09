@@ -1,6 +1,8 @@
 <template>
   <v-row class="justify-center text-center">
     <v-col ref="content">
+      <br v-if="!descarga" />
+      <br v-if="!descarga" />
       <Proteccion v-if="client" :client="client" />
     </v-col>
     <v-row class="justify-center text-center">

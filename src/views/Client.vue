@@ -81,6 +81,10 @@
               <td v-if="descuento === true">SI</td>
               <td v-else>No</td>
             </tr>
+            <tr v-if="client.observaciones != ''">
+              <td>OBSERVACIONES</td>
+              <td>{{client.observaciones}}</td>
+            </tr>
           </tbody>
         </v-simple-table>
       </v-col>
@@ -105,6 +109,7 @@ export default {
   },
   methods: {
     downloadPDF(quality = 1) {
+      let docName = this.client.razonSocial;
       const doc = new jsPDF("p", "mm", "a4");
       var canvasElement = document.createElement("canvas");
       var canvasElement2 = document.createElement("canvas");
@@ -116,7 +121,7 @@ export default {
         doc.addPage();
         html2canvas(page2, { canvas: canvasElement2 }).then(function(canvas) {
           doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-          doc.save("proteccion.pdf");
+          doc.save(`${docName}.pdf`);
         });
       });
     }

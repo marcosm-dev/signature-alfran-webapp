@@ -55,8 +55,12 @@
           <v-select v-model="pago" :items="tipoDePago" label="Condiciones de Pago" required></v-select>
         </v-col>
         <v-col cols="6">
-          <v-checkbox v-model="descuento" label="Descuento de Mondelez"></v-checkbox>
+          <v-text-field v-model="descuento" label="Descuento"></v-text-field>
         </v-col>
+        <v-col cols="6">
+          <v-text-field v-model="observaciones" label="Observaciones"></v-text-field>
+        </v-col>
+        OBSERVACIONES{{observaciones}}
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Firmar proteccion</v-btn>
       <h1>* Todos los campos son obligatorios</h1>
@@ -69,7 +73,7 @@ import API from "@/services/api.js";
 export default {
   data: () => ({
     tipoDePago: ["Contado", "Credito"],
-    descuento: false,
+    descuento: null,
     cargo: null,
     ruta: null,
     zona: null,
@@ -87,7 +91,8 @@ export default {
     contacto: null,
     cargo: null,
     copias: null,
-    pago: "Contado"
+    pago: "Contado",
+    observaciones: ""
   }),
   methods: {
     crearCliente() {
@@ -109,8 +114,10 @@ export default {
         cargo: this.cargo,
         copias: this.copias,
         descuento: this.descuento,
-        pago: this.pago
+        pago: this.pago,
+        observaciones: this.observaciones
       };
+      console.log(newClient);
       API.createClient(newClient).then(response => {
         console.log(response);
         this.$router.push(`/client/${response.id}`);

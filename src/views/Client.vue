@@ -80,7 +80,7 @@
             </tr>
             <tr>
               <td>DESCUENTO MONDELEZ:</td>
-              <td>{{client.descuento}}</td>
+              <td>{{client.descuento}} %</td>
             </tr>
             <tr v-if="client.observaciones != ''">
               <td>OBSERVACIONES</td>
@@ -121,7 +121,7 @@ export default {
         html2canvas(page2, { canvas: canvasElement2 }).then(function(canvas) {
           doc.addPage();
           doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-          doc.save(`${docName}.pdf`);
+          doc.save(`pd_${docName}.pdf`);
         });
       });
     }

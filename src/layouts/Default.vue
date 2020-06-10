@@ -13,7 +13,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-card class="mx-auto overflow-hidden">
-      <v-app-bar color="light-blue darken-4" dark app>
+      <v-app-bar height="45px" color="light-blue darken-4" dark app>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" x-large></v-app-bar-nav-icon>
         <v-toolbar-title class="empresa">Alfran Archipiélago</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .empresa {
   color: rgb(230, 5, 181);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 40px;
 }
 </style>

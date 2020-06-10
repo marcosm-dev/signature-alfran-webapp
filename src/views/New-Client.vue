@@ -49,13 +49,14 @@
           <v-text-field v-model="cargo" label="Cargo" required></v-text-field>
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="copias" label="Numero de Copias" required></v-text-field>
+          <v-select v-model="copias" :items="copiaItems" label="Numero de Copias"></v-select>
         </v-col>
         <v-col cols="6">
           <v-select v-model="pago" :items="tipoDePago" label="Condiciones de Pago" required></v-select>
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="descuento" label="Descuento"></v-text-field>
+          <v-text-field v-model="selectDescuento" v-if="showDescuento" label="Descuento sin %"></v-text-field>
+          <v-select v-else v-model="descuento" :items="descuentoItems" label="Descuento"></v-select>
         </v-col>
         <v-col cols="12">
           <v-text-field v-model="observaciones" label="Observaciones"></v-text-field>
@@ -72,7 +73,10 @@ import API from "@/services/api.js";
 export default {
   data: () => ({
     tipoDePago: ["Contado", "Credito"],
+    descuentoItems: ["0", "5", "10", "OTRO"],
+    copiaItems: [0, 1, 2],
     descuento: null,
+    selectDescuento: null,
     cargo: null,
     ruta: null,
     zona: null,
@@ -112,15 +116,25 @@ export default {
         contacto: this.contacto,
         cargo: this.cargo,
         copias: this.copias,
-        descuento: this.descuento,
+        descuento: "",
         pago: this.pago,
         observaciones: this.observaciones
       };
+      if (this.descuento !== "OTRO") {
+        newClient.descuento = this.descuento;
+      } else {
+        newClient.descuento = this.selectDescuento;
+      }
       console.log(newClient);
+
       API.createClient(newClient).then(response => {
-        console.log(response);
         this.$router.push(`/client/${response.id}`);
       });
+    }
+  },
+  computed: {
+    showDescuento() {
+      if (this.descuento === "OTRO") return true;
     }
   }
 };

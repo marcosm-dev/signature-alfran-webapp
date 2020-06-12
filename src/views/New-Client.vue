@@ -3,69 +3,92 @@
     <v-form class="text-center mt-5">
       <h1 class="display-1">CLIENTE NUEVO</h1>
       <v-row>
-        <v-col cols="6">
-          <v-text-field v-model="ruta" label="Nº Ruta" required></v-text-field>
+        <v-col cols="6" class="pb-0">
+          <v-text-field v-model="ruta" label="Nº Ruta" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="zona" label="Nº Zona" required></v-text-field>
+        <v-col cols="6" class="pb-0">
+          <v-text-field v-model="zona" label="Nº Zona" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="razonSocial" label="Razon Social" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="razonSocial" label="Razon Social" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="nombre" label="Nombre Comercial" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="nombre" label="Nombre Comercial" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="direccion" label="Dirección" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="direccion" label="Dirección" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="cp" :rules="cpRules" label="Codigo Postal" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="cp" :rules="cpRules" label="Codigo Postal" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="localidad" label="Localidad" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="localidad" label="Localidad" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="municipio" label="Municipio" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="municipio" label="Municipio" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="provincia" label="Provincia" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="provincia" label="Provincia" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="telefono" label="Teléfono" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="telefono" :rules="phoneRules" label="Teléfono" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            outlined
+            placeholder="ejemplo@email.com"
+            label="E-mail"
+          ></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="horario" label="Horario de reparto" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field
+            v-model="horario"
+            placeholder="9:00 a 14:00 / 16:00 a 20:00"
+            label="Horario de reparto"
+            outlined
+            required
+          ></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="contacto" label="Persona de contacto" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="contacto" label="Persona de contacto" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="cargo" label="Cargo" required></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="cargo" label="Cargo" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-select v-model="copias" :items="copiaItems" label="Numero de Copias"></v-select>
+        <v-col cols="6" class="py-0">
+          <v-select v-model="copias" :items="copiaItems" outlined label="Numero de Copias"></v-select>
         </v-col>
-        <v-col cols="6">
-          <v-select v-model="pago" :items="tipoDePago" label="Condiciones de Pago" required></v-select>
+        <v-col cols="6" class="py-0">
+          <v-select
+            v-model="pago"
+            :items="tipoDePago"
+            outlined
+            label="Condiciones de Pago"
+            required
+          ></v-select>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="selectDescuento" v-if="showDescuento" label="Descuento sin %"></v-text-field>
-          <v-select v-else v-model="descuento" :items="descuentoItems" label="Descuento"></v-select>
+        <v-col cols="6" class="py-0">
+          <v-text-field
+            v-model="selectDescuento"
+            v-if="showDescuento"
+            outlined
+            label="Descuento sin %"
+          ></v-text-field>
+          <v-select v-else v-model="descuento" :items="descuentoItems" outlined label="Descuento"></v-select>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="eoi" label="EOI.D"></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="eoi" outlined label="EOI.D"></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field v-model="sid" label="SID"></v-text-field>
+        <v-col cols="6" class="py-0">
+          <v-text-field v-model="sid" outlined label="SID"></v-text-field>
         </v-col>
-        <v-col cols="12">
-          <v-text-field v-model="observaciones" label="Observaciones"></v-text-field>
+        <v-col cols="12" class="py-0">
+          <v-text-field v-model="observaciones" outlined label="Observaciones"></v-text-field>
         </v-col>
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Firmar proteccion</v-btn>
@@ -105,6 +128,7 @@ export default {
     municipio: null,
     provincia: null,
     telefono: null,
+    phoneRules: [v => /^[0-9]{9}?$/i.test(v)],
     email: null,
     emailRules: [v => /.+@.+/.test(v) || "Inserta un email válido"],
     horario: null,

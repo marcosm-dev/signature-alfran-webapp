@@ -96,7 +96,6 @@
             </tr>
           </tbody>
         </v-simple-table>
-        <pre> {{client}} </pre>
       </v-col>
       <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Descargar</v-btn>
     </v-row>

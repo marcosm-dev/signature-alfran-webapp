@@ -133,10 +133,6 @@ export default {
       } else {
         newClient.descuento = this.selectDescuento;
       }
-      if (this.eoi && this.sid) {
-        newClient.eoi = this.eoi;
-        newClient.sid = this.sid;
-      }
       console.log(newClient);
 
       await API.createClient(newClient).then(response => {

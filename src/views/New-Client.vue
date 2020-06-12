@@ -10,7 +10,7 @@
           <v-text-field v-model="zona" label="Nº Zona" required></v-text-field>
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="dni" label="NIF/CIF" required></v-text-field>
+          <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" required></v-text-field>
         </v-col>
         <v-col cols="6">
           <v-text-field v-model="razonSocial" label="Razon Social" required></v-text-field>
@@ -22,7 +22,7 @@
           <v-text-field v-model="direccion" label="Dirección" required></v-text-field>
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="cp" label="Codigo Postal" required></v-text-field>
+          <v-text-field v-model="cp" :rules="cpRules" label="Codigo Postal" required></v-text-field>
         </v-col>
         <v-col cols="6">
           <v-text-field v-model="localidad" label="Localidad" required></v-text-field>
@@ -37,7 +37,7 @@
           <v-text-field v-model="telefono" label="Teléfono" required></v-text-field>
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="email" label="E-mail"></v-text-field>
+          <v-text-field v-model="email" :rules="emailRules" label="E-mail"></v-text-field>
         </v-col>
         <v-col cols="6">
           <v-text-field v-model="horario" label="Horario de reparto" required></v-text-field>
@@ -89,15 +89,24 @@ export default {
     ruta: null,
     zona: null,
     dni: null,
+    dniRules: [
+      v =>
+        /^[0-9]{8}[A-Z]{1}?$/i.test(v) ||
+        /^[A-Z]{1}[0-8]{8}[A-Z]{1}?$/i.test(v) ||
+        /^[A-Z]{1}[0-8]{8}?$/i.test(v) ||
+        "Inserta un NIF o CIF válido"
+    ],
     razonSocial: null,
     nombre: null,
     direccion: null,
     cp: null,
+    cpRules: [v => /^[0-9]{5}?$/i.test(v) || "Inserta un código postal válido"],
     localidad: null,
     municipio: null,
     provincia: null,
     telefono: null,
     email: null,
+    emailRules: [v => /.+@.+/.test(v) || "Inserta un email válido"],
     horario: null,
     contacto: null,
     cargo: null,
@@ -126,7 +135,9 @@ export default {
         copias: this.copias,
         descuento: "",
         pago: this.pago,
-        observaciones: this.observaciones
+        observaciones: this.observaciones,
+        EOI: this.eoi,
+        SID: this.sid
       };
       if (this.descuento !== "OTRO") {
         newClient.descuento = this.descuento;

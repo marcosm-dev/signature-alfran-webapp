@@ -82,20 +82,21 @@
               <td>DESCUENTO MONDELEZ:</td>
               <td>{{client.descuento}} %</td>
             </tr>
+            <tr v-if="client.EOI">
+              <td>EOI.D</td>
+              <td>{{client.EOI}}</td>
+            </tr>
+            <tr v-if="client.SID">
+              <td>SID</td>
+              <td>{{client.SID}}</td>
+            </tr>
             <tr v-if="client.observaciones != ''">
               <td>OBSERVACIONES</td>
               <td>{{client.observaciones}}</td>
             </tr>
-            <tr v-if="client.eoi != null">
-              <td>EOI.D</td>
-              <td>{{client.eoi}}</td>
-            </tr>
-            <tr v-if="client.sid != null">
-              <td>SID</td>
-              <td>{{client.sid}}</td>
-            </tr>
           </tbody>
         </v-simple-table>
+        <pre> {{client}} </pre>
       </v-col>
       <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Descargar</v-btn>
     </v-row>

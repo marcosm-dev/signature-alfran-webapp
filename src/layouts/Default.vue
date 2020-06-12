@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .empresa {
-  color: rgb(230, 5, 181);
+  color: rgb(235, 41, 186);
   font-weight: 500;
   font-size: 40px;
 }

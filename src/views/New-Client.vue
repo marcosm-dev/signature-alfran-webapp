@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-form class="text-center mt-5">
-      <h1 class="display-1">CLIENTE NUEVO</h1>
+      <h1 class="title_bg font-weight-bold display-1 py-1 mt-n8">CLIENTE NUEVO</h1>
       <v-row>
         <v-col cols="6" class="pb-0">
           <v-text-field v-model="ruta" label="Nº Ruta" outlined required></v-text-field>
@@ -36,7 +36,7 @@
         <v-col cols="6" class="py-0">
           <v-text-field v-model="telefono" :rules="phoneRules" label="Teléfono" outlined required></v-text-field>
         </v-col>
-        <v-col cols="6" class="py-0">
+        <v-col cols="6" class="py-1">
           <v-text-field
             v-model="email"
             :rules="emailRules"
@@ -92,7 +92,7 @@
         </v-col>
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Firmar proteccion</v-btn>
-      <h1>* Todos los campos son obligatorios</h1>
+      <h1 class="title_bg font-weight-bold py-1 mb-n3">* Todos los campos son obligatorios</h1>
     </v-form>
   </v-container>
 </template>
@@ -182,3 +182,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.title_bg {
+  background-color: rgb(190, 190, 190);
+  color: white;
+  border: 1px solid rgba(82, 82, 82, 0.432);
+}
+</style>

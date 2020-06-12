@@ -107,7 +107,13 @@
         </span>
       </div>
     </div>
-    <v-btn color="primary" v-if="!client && descarga" @click="downloadPDF" rounded>Descargar</v-btn>
+    <v-btn
+      color="primary"
+      class="mb-5"
+      v-if="!client && descarga"
+      @click="downloadPDF"
+      rounded
+    >Descargar</v-btn>
   </div>
 </template>
 

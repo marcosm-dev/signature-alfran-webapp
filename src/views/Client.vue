@@ -86,6 +86,14 @@
               <td>OBSERVACIONES</td>
               <td>{{client.observaciones}}</td>
             </tr>
+            <tr v-if="client.eoi != null">
+              <td>EOI.D</td>
+              <td>{{client.eoi}}</td>
+            </tr>
+            <tr v-if="client.sid != null">
+              <td>SID</td>
+              <td>{{client.sid}}</td>
+            </tr>
           </tbody>
         </v-simple-table>
       </v-col>

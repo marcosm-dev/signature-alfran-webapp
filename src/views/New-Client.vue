@@ -58,6 +58,12 @@
           <v-text-field v-model="selectDescuento" v-if="showDescuento" label="Descuento sin %"></v-text-field>
           <v-select v-else v-model="descuento" :items="descuentoItems" label="Descuento"></v-select>
         </v-col>
+        <v-col cols="6">
+          <v-text-field v-model="eoi" label="EOI.D"></v-text-field>
+        </v-col>
+        <v-col cols="6">
+          <v-text-field v-model="sid" label="SID"></v-text-field>
+        </v-col>
         <v-col cols="12">
           <v-text-field v-model="observaciones" label="Observaciones"></v-text-field>
         </v-col>
@@ -77,6 +83,8 @@ export default {
     copiaItems: [0, 1, 2],
     descuento: null,
     selectDescuento: null,
+    eoi: null,
+    sid: null,
     cargo: null,
     ruta: null,
     zona: null,
@@ -98,7 +106,7 @@ export default {
     observaciones: ""
   }),
   methods: {
-    crearCliente() {
+    async crearCliente() {
       const newClient = {
         ruta: this.ruta,
         zona: this.zona,
@@ -125,9 +133,13 @@ export default {
       } else {
         newClient.descuento = this.selectDescuento;
       }
+      if (this.eoi && this.sid) {
+        newClient.eoi = this.eoi;
+        newClient.sid = this.sid;
+      }
       console.log(newClient);
 
-      API.createClient(newClient).then(response => {
+      await API.createClient(newClient).then(response => {
         this.$router.push(`/client/${response.id}`);
       });
     }

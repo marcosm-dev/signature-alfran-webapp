@@ -25,7 +25,7 @@ import API from "@/services/api.js";
 export default {
   data: () => ({
     user: "comercial",
-    password: "af1311"
+    password: "af"
   }),
   methods: {
     login() {

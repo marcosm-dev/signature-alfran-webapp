@@ -4,10 +4,10 @@
       <h1 class="title_bg font-weight-bold display-1 py-1 mt-n8">CLIENTE NUEVO</h1>
       <v-row>
         <v-col cols="6" class="pb-0">
-          <v-text-field v-model="ruta" label="Nº Ruta" outlined required></v-text-field>
+          <v-text-field v-model="ruta" :rules="numberRules" label="Nº Ruta" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="pb-0">
-          <v-text-field v-model="zona" label="Nº Zona" outlined required></v-text-field>
+          <v-text-field v-model="zona" :rules="numberRules" label="Nº Zona" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" outlined required></v-text-field>
@@ -74,6 +74,7 @@
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field
+            :rules="numberRules"
             v-model="selectDescuento"
             v-if="showDescuento"
             outlined
@@ -110,6 +111,7 @@ export default {
     sid: null,
     cargo: null,
     ruta: null,
+    numberRules: [v => /^[0-9]{1,}?$/i.test(v)],
     zona: null,
     dni: null,
     dniRules: [

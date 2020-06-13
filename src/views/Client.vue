@@ -97,16 +97,16 @@
           </tbody>
         </v-simple-table>
       </v-col>
-      <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Descargar</v-btn>
+      <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Finalizar</v-btn>
     </v-row>
   </v-row>
 </template>
 
 <script>
-import API from "@/services/api.js";
+import API from "@/services/api";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import Proteccion from "@/components/pd-datos.vue";
+import Proteccion from "@/components/pd-datos";
 
 export default {
   data: () => ({
@@ -129,7 +129,7 @@ export default {
         html2canvas(page2, { canvas: canvasElement2 }).then(function(canvas) {
           doc.addPage();
           doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-          doc.save(`pd_${docName}.pdf`);
+          doc.save(`"${docName}".pdf`);
         });
       });
     }

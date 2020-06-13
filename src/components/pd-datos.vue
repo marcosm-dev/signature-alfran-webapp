@@ -162,7 +162,7 @@ export default {
         canvas
       ) {
         doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-        doc.save(`${docName}.pdf`);
+        doc.save(`"${docName}".pdf`);
       });
     }
   }

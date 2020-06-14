@@ -145,66 +145,6 @@ export default {
     client: Object
   },
   methods: {
-    download() {
-      if (screen.width < 1024) {
-        document
-          .getElementById("viewport")
-          .setAttribute("content", "width=1200px");
-      }
-      //const data = document.getElementById("contentToConvert");
-      let html2canvasOptions = {
-        allowTaint: true,
-        removeContainer: true,
-        backgroundColor: null,
-        imageTimeout: 15000,
-        logging: true,
-        scale: 2,
-        useCORS: true
-      };
-      var canvas = document.createElement("canvas");
-      // Few necessary setting options
-      const contentDataURL = canvas.toDataURL("image/png");
-      const imgWidth = 210;
-      const pageHeight = 295;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      let pdf = new jsPDF("p", "mm", "a4", true); // A4 size page of PDF
-      let position = 0;
-
-      pdf.addImage(
-        contentDataURL,
-        "PNG",
-        0,
-        position,
-        imgWidth,
-        imgHeight,
-        undefined,
-        "FAST"
-      );
-      heightLeft -= pageHeight;
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(
-          contentDataURL,
-          "PNG",
-          0,
-          position,
-          imgWidth,
-          imgHeight,
-          undefined
-        );
-        heightLeft -= pageHeight;
-      }
-      pdf.save("resume.pdf"); // Generated PDF
-
-      if (screen.width < 1024) {
-        document
-          .getElementById("viewport")
-          .setAttribute("content", "width=device-width, initial-scale=1");
-      }
-    },
     clear() {
       this.$refs.signaturePad.clearSignature();
     },
@@ -214,34 +154,17 @@ export default {
       this.data = data;
     },
     downloadPDF(quality = 1) {
-      let contentToCovert = this.$refs.content;
-      if (screen.width < 1024) {
-        contentToCovert.setAttribute("content", "width=1200px");
-      }
-
       this.descarga = false;
-      let docName = this.razonSocial;
 
-      const doc = new jsPDF("p", "mm", "a4", true);
+      const docName = this.razonSocial;
+      const doc = new jsPDF("p", "mm", "a4");
 
       var canvasElement = document.createElement("canvas");
-      html2canvas(contentToCovert, {
-        canvas: canvasElement,
-        removeContainer: true,
-        imageTimeout: 15000,
-        scale: 2,
-        allowTaint: true
-      }).then(function(canvas) {
-        doc.addImage(
-          canvas.toDataURL("image/png"),
-          "PNG",
-          0,
-          0,
-          211,
-          298,
-          "FAST"
-        );
-        doc.save(`pd_${docName}`.pdf);
+      html2canvas(this.$refs.content, { canvas: canvasElement }).then(function(
+        canvas
+      ) {
+        doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
+        doc.save(this.docName.pdf);
       });
     }
   }

@@ -154,6 +154,7 @@ export default {
       this.data = data;
     },
     downloadPDF(quality = 1) {
+      this.descarga = false;
       let docName = this.razonSocial;
       const doc = new jsPDF("p", "mm", "a4");
       var canvasElement = document.createElement("canvas");

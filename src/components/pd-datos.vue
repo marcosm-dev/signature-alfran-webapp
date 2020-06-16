@@ -153,17 +153,14 @@ export default {
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
       this.data = data;
     },
-    downloadPDF() {
-      this.descarga = false;
-
-      const docName = this.razonSocial;
+    downloadPDF(quality = 1) {
+      let docName = this.razonSocial;
       const doc = new jsPDF("p", "mm", "a4");
-
       var canvasElement = document.createElement("canvas");
       html2canvas(this.$refs.content, { canvas: canvasElement }).then(function(
         canvas
       ) {
-        doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
+        doc.addImage(canvas.toDataURL("image/jpeg"), "JPEG", 0, 0, 211, 298);
         doc.save(docName + ".pdf");
       });
     }

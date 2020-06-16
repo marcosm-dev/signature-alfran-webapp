@@ -83,7 +83,7 @@
               <td>{{client.descuento}} %</td>
             </tr>
             <tr v-if="client.EOI">
-              <td>EOI.D</td>
+              <td>EOID</td>
               <td>{{client.EOI}}</td>
             </tr>
             <tr v-if="client.SID">
@@ -129,7 +129,7 @@ export default {
         html2canvas(page2, { canvas: canvasElement2 }).then(function(canvas) {
           doc.addPage();
           doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-          doc.save(`"${docName}".pdf`);
+          doc.save(docName + ".pdf");
         });
       });
     }

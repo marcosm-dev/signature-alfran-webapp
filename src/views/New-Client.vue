@@ -83,7 +83,7 @@
           <v-select v-else v-model="descuento" :items="descuentoItems" outlined label="Descuento"></v-select>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="eoi" outlined label="EOI.D"></v-text-field>
+          <v-text-field v-model="eoi" outlined label="EOID"></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="sid" outlined label="SID"></v-text-field>

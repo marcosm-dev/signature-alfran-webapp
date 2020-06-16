@@ -153,7 +153,7 @@ export default {
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
       this.data = data;
     },
-    downloadPDF(quality = 1) {
+    downloadPDF() {
       this.descarga = false;
 
       const docName = this.razonSocial;
@@ -164,7 +164,7 @@ export default {
         canvas
       ) {
         doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-        doc.save(this.docName.pdf);
+        doc.save(docName + ".pdf");
       });
     }
   }

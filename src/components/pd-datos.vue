@@ -109,7 +109,7 @@
         <v-btn v-if="overlay" color="success" @click="save">Guardar</v-btn>
       </div>
     </div>
-    <v-btn color="primary" class="mb-5" @click="downloadPDF" rounded>Descargar</v-btn>
+    <v-btn v-if="!client" color="primary" class="mb-5" @click="downloadPDF" rounded>Finalizar</v-btn>
   </div>
 </template>
 

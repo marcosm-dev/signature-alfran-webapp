@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-form class="text-center mt-5">
-      <h1 class="title_bg font-weight-bold display-1 py-1 mt-n8">CLIENTE NUEVO</h1>
+      <h1 class="title_bg font-weight-bold display-1 py-1 mt-n7">CLIENTE NUEVO</h1>
       <v-row>
         <v-col cols="6" class="pb-0">
           <v-text-field v-model="ruta" :rules="numberRules" label="Nº Ruta" outlined required></v-text-field>
@@ -93,7 +93,7 @@
         </v-col>
       </v-row>
       <v-btn class="my-10" color="primary" rounded @click="crearCliente">Firmar proteccion</v-btn>
-      <h1 class="title_bg font-weight-bold py-1 mb-n3">* Todos los campos son obligatorios</h1>
+      <h1 class="title_bg font-weight-bold py-1 mb-n2">* Todos los campos son obligatorios</h1>
     </v-form>
   </v-container>
 </template>
@@ -170,7 +170,6 @@ export default {
       } else {
         newClient.descuento = this.selectDescuento;
       }
-      console.log(newClient);
 
       await API.createClient(newClient).then(response => {
         this.$router.push(`/client/${response.id}`);

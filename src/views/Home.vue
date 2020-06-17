@@ -8,7 +8,12 @@
         <v-col cols="4">
           <v-form>
             <v-text-field v-model="user" label="Usuario"></v-text-field>
-            <v-text-field v-model="password" type="password" label="Contraseña"></v-text-field>
+            <v-text-field
+              v-model="password"
+              type="password"
+              label="Contraseña"
+              @keyup.enter="login"
+            ></v-text-field>
           </v-form>
           <v-card-actions>
             <v-btn color="pink" max-height="40px" @click="login" rounded dark>Login</v-btn>

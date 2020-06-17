@@ -32,4 +32,20 @@ export default {
     });
     return response.data;
   },
+  async getAllClients() {
+    const response = await API.get("/clients/", {
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`, // eslint-disable-line
+      },
+    });
+    return response.data;
+  },
+  async deleteClientById(clientId) {
+    const response = await API.delete("/clients/" + clientId, {
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`, // eslint-disable-line
+      },
+    });
+    return response.data;
+  },
 };

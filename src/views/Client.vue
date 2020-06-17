@@ -97,7 +97,7 @@
           </tbody>
         </v-simple-table>
       </v-col>
-      <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded>Finalizar</v-btn>
+      <v-btn class="my-10" color="light-blue darken-3" @click="downloadPDF" rounded dark>Finalizar</v-btn>
     </v-row>
   </v-row>
 </template>
@@ -125,10 +125,10 @@ export default {
       html2canvas(this.$refs.content, { canvas: canvasElement }).then(function(
         canvas
       ) {
-        doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
+        doc.addImage(canvas.toDataURL("image/jpeg"), "JPEG", 0, 0, 211, 298);
         html2canvas(page2, { canvas: canvasElement2 }).then(function(canvas) {
           doc.addPage();
-          doc.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
+          doc.addImage(canvas.toDataURL("image/jpeg"), "JPEG", 0, 0, 211, 298);
           doc.save(docName + ".pdf");
         });
       });

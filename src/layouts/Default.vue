@@ -3,7 +3,7 @@
     <v-navigation-drawer app v-model="drawer">
       <v-list nav dense>
         <v-list-item-group active-class="light-blue darken-1--text text--accent-4">
-          <v-list-item v-for="(data, i) in drawerData " :key="i" :to="data.to">
+          <v-list-item v-for="(data, i) in drawerData " :key="i" :to="data.to" :class="active">
             <v-list-item-icon>
               <v-icon>{{data.icon}}</v-icon>
             </v-list-item-icon>
@@ -17,7 +17,6 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" x-large></v-app-bar-nav-icon>
         <v-toolbar-title class="empresa">Alfran Archipiélago</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-icon @click="logout" x-large>mdi-exit-to-app</v-icon>
       </v-app-bar>
       <v-content>
         <router-view></router-view>
@@ -30,6 +29,7 @@
 export default {
   name: "Home",
   data: () => ({
+    active: "active",
     drawerData: [
       {
         name: "Nuevo Cliente",
@@ -38,8 +38,18 @@ export default {
       },
       {
         name: "Nuevo Proteccion",
-        icon: "mdi-file-document",
+        icon: "mdi-file-document-outline",
         to: "/newproteccion"
+      },
+      {
+        name: "Clientes",
+        icon: "mdi-store-outline",
+        to: "/clients"
+      },
+      {
+        name: "Salir",
+        icon: "mdi-exit-to-app",
+        to: "/"
       }
     ],
     drawer: false
@@ -58,5 +68,8 @@ export default {
   color: rgb(235, 41, 186);
   font-weight: 500;
   font-size: 40px;
+}
+.active {
+  color: white;
 }
 </style>

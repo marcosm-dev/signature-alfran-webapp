@@ -37,7 +37,7 @@ export default {
         to: "/newclient"
       },
       {
-        name: "Nuevo Proteccion",
+        name: "Nueva Proteccion",
         icon: "mdi-file-document-outline",
         to: "/newproteccion"
       },

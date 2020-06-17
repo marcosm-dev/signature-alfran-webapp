@@ -4,13 +4,27 @@
       <h1 class="title_bg font-weight-bold display-1 py-1 mt-n7">CLIENTE NUEVO</h1>
       <v-row>
         <v-col cols="6" class="pb-0">
-          <v-text-field type="number" v-model="ruta" label="Nº Ruta" outlined required></v-text-field>
+          <v-text-field
+            type="number"
+            v-model="ruta"
+            :rules="numberRules"
+            label="Nº Ruta"
+            outlined
+            required
+          ></v-text-field>
         </v-col>
         <v-col cols="6" class="pb-0">
-          <v-text-field type="number" v-model="zona" label="Nº Zona" outlined required></v-text-field>
+          <v-text-field
+            type="number"
+            v-model="zona"
+            :rules="numberRules"
+            label="Nº Zona"
+            outlined
+            required
+          ></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" outlined required></v-text-field>
+          <v-text-field v-model="dni" :rules="numberRules" label="NIF/CIF" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="razonSocial" label="Razon Social" outlined required></v-text-field>

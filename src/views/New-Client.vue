@@ -4,10 +4,10 @@
       <h1 class="title_bg font-weight-bold display-1 py-1 mt-n7">CLIENTE NUEVO</h1>
       <v-row>
         <v-col cols="6" class="pb-0">
-          <v-text-field v-model="ruta" :rules="numberRules" label="Nº Ruta" outlined required></v-text-field>
+          <v-text-field type="number" v-model="ruta" label="Nº Ruta" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="pb-0">
-          <v-text-field v-model="zona" :rules="numberRules" label="Nº Zona" outlined required></v-text-field>
+          <v-text-field type="number" v-model="zona" label="Nº Zona" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" outlined required></v-text-field>
@@ -22,10 +22,17 @@
           <v-text-field v-model="direccion" label="Dirección" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="cp" :rules="cpRules" label="Codigo Postal" outlined required></v-text-field>
+          <v-text-field
+            type="number"
+            v-model="cp"
+            :rules="cpRules"
+            label="Codigo Postal"
+            outlined
+            required
+          ></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="localidad" label="Localidad" outlined required></v-text-field>
+          <v-text-field type v-model="localidad" label="Localidad" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="municipio" label="Municipio" outlined required></v-text-field>
@@ -34,11 +41,19 @@
           <v-text-field v-model="provincia" label="Provincia" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="telefono" :rules="phoneRules" label="Teléfono" outlined required></v-text-field>
+          <v-text-field
+            type="number"
+            v-model="telefono"
+            :rules="phoneRules"
+            label="Teléfono"
+            outlined
+            required
+          ></v-text-field>
         </v-col>
         <v-col cols="6" class="py-1">
           <v-text-field
             v-model="email"
+            type="email"
             :rules="emailRules"
             outlined
             placeholder="ejemplo@email.com"
@@ -74,11 +89,11 @@
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field
+            type="number"
             :rules="numberRules"
             v-model="selectDescuento"
             v-if="showDescuento"
             outlined
-            label="Descuento sin %"
           ></v-text-field>
           <v-select v-else v-model="descuento" :items="descuentoItems" outlined label="Descuento"></v-select>
         </v-col>

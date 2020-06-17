@@ -24,7 +24,7 @@
           ></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="dni" :rules="numberRules" label="NIF/CIF" outlined required></v-text-field>
+          <v-text-field v-model="dni" :rules="dniRules" label="NIF/CIF" outlined required></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="razonSocial" label="Razon Social" outlined required></v-text-field>

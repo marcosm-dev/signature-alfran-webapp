@@ -21,13 +21,16 @@
     </v-row>
     <v-row>
       <v-spacer></v-spacer>
-      <v-btn class="my-12 primary" dark @click="downloadPDF" rounded>Ir al cliente</v-btn>
+      <v-btn class="my-12" @click="downloadPDF" outlined color="success" rounded>Ir al cliente</v-btn>
       <v-spacer></v-spacer>
-      <v-btn class="my-12 red" dark @click="deleteClient" rounded>Borrar Cliente</v-btn>
+      <v-btn class="my-12" @click="deleteClient" outlined color="red" rounded>Borrar Cliente</v-btn>
       <v-spacer></v-spacer>
     </v-row>
     <v-divider></v-divider>
-    <h2 class="mt-6">* ¡Recuerda que el cliente debe volver a firmar!</h2>
+    <h2 class="title_bg font-weight-bold py-1 mb-n2">
+      * ¡Recuerda!, El cliente debe volver a firmar
+      <v-icon dark size="30px">mdi-pencil</v-icon>
+    </h2>
   </v-container>
 </template>
 

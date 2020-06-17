@@ -94,8 +94,16 @@
             v-model="selectDescuento"
             v-if="showDescuento"
             outlined
+            suffix="%"
           ></v-text-field>
-          <v-select v-else v-model="descuento" :items="descuentoItems" outlined label="Descuento"></v-select>
+          <v-select
+            v-else
+            v-model="descuento"
+            :items="descuentoItems"
+            outlined
+            label="Descuento"
+            suffix="%"
+          ></v-select>
         </v-col>
         <v-col cols="6" class="py-0">
           <v-text-field v-model="eoi" outlined label="EOID"></v-text-field>

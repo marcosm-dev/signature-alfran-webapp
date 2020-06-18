@@ -151,7 +151,7 @@ export default {
     },
     downloadPDF(quality = 1) {
       this.descarga = false;
-      let docName = this.razonSocial;
+      let docName = this.nombre;
       const doc = new jsPDF("p", "mm", "a4");
       var canvasElement = document.createElement("canvas");
       html2canvas(this.$refs.content, { canvas: canvasElement }).then(function(

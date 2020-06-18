@@ -123,7 +123,7 @@
           <v-text-field v-model="eoi" outlined label="EOID"></v-text-field>
         </v-col>
         <v-col cols="6" class="py-0">
-          <v-text-field v-model="sid" outlined label="SID"></v-text-field>
+          <v-text-field v-model="fid" outlined label="FID"></v-text-field>
         </v-col>
         <v-col cols="12" class="py-0">
           <v-text-field v-model="observaciones" outlined label="Observaciones"></v-text-field>
@@ -145,7 +145,7 @@ export default {
     descuento: null,
     selectDescuento: null,
     eoi: null,
-    sid: null,
+    fid: null,
     cargo: null,
     ruta: null,
     numberRules: [v => /^[0-9]{1,}?$/i.test(v)],
@@ -200,7 +200,7 @@ export default {
         pago: this.pago,
         observaciones: this.observaciones,
         EOI: this.eoi,
-        SID: this.sid
+        FID: this.fid
       };
       if (this.descuento !== "OTRO") {
         newClient.descuento = this.descuento;

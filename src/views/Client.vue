@@ -86,9 +86,9 @@
               <td>EOID</td>
               <td>{{client.EOI}}</td>
             </tr>
-            <tr v-if="client.SID">
-              <td>SID</td>
-              <td>{{client.SID}}</td>
+            <tr v-if="client.FID">
+              <td>FID</td>
+              <td>{{client.FID}}</td>
             </tr>
             <tr v-if="client.observaciones != ''">
               <td>OBSERVACIONES</td>
@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     downloadPDF(quality = 1) {
-      let docName = this.client.razonSocial;
+      let docName = this.client.nombre;
       const doc = new jsPDF("p", "mm", "a4");
       var canvasElement = document.createElement("canvas");
       var canvasElement2 = document.createElement("canvas");

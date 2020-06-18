@@ -73,6 +73,7 @@ export default {
       if (clientIdx !== -1) {
         this.clients.splice(clientIdx, 1);
       }
+      this.selected = [];
     },
     downloadPDF() {
       if (this.selected !== [])

@@ -148,34 +148,37 @@ export default {
     fid: null,
     cargo: null,
     ruta: null,
-    numberRules: [v => /^[0-9]{1,}?$/i.test(v)],
+    numberRules: [(v) => /^[0-9]{1,}?$/i.test(v)],
     zona: null,
     dni: null,
     dniRules: [
-      v =>
+      (v) =>
         /^[0-9]{8}[A-Z]{1}?$/i.test(v) ||
-        /^[A-Z]{1}[0-8]{8}[A-Z]{1}?$/i.test(v) ||
-        /^[A-Z]{1}[0-8]{8}?$/i.test(v) ||
-        "Inserta un NIF o CIF válido"
+        /^[A-Z]{1}[0-9]{8}[A-Z]{1}?$/i.test(v) ||
+        /^[A-Z]{1}[0-9]{8}?$/i.test(v) ||
+        /^[A-Z]{1}[0-9]{7}[A-Z]{1}?$/i.test(v) ||
+        "Inserta un NIF o CIF válido",
     ],
     razonSocial: null,
     nombre: null,
     direccion: null,
     cp: null,
-    cpRules: [v => /^[0-9]{5}?$/i.test(v) || "Inserta un código postal válido"],
+    cpRules: [
+      (v) => /^[0-9]{5}?$/i.test(v) || "Inserta un código postal válido",
+    ],
     localidad: null,
     municipio: null,
     provincia: null,
     telefono: null,
-    phoneRules: [v => /^[0-9]{9}?$/i.test(v)],
+    phoneRules: [(v) => /^[0-9]{9}?$/i.test(v)],
     email: null,
-    emailRules: [v => /.+@.+/.test(v) || "Inserta un email válido"],
+    emailRules: [(v) => /.+@.+/.test(v) || "Inserta un email válido"],
     horario: null,
     contacto: null,
     cargo: null,
     copias: null,
     pago: "Contado",
-    observaciones: ""
+    observaciones: "",
   }),
   methods: {
     async crearCliente() {
@@ -200,7 +203,7 @@ export default {
         pago: this.pago,
         observaciones: this.observaciones,
         EOI: this.eoi,
-        FID: this.fid
+        FID: this.fid,
       };
       if (this.descuento !== "OTRO") {
         newClient.descuento = this.descuento;
@@ -208,16 +211,16 @@ export default {
         newClient.descuento = this.selectDescuento;
       }
 
-      await API.createClient(newClient).then(response => {
+      await API.createClient(newClient).then((response) => {
         this.$router.push(`/client/${response.id}`);
       });
-    }
+    },
   },
   computed: {
     showDescuento() {
       if (this.descuento === "OTRO") return true;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -16,40 +16,11 @@
 <script>
 const defaultLayout = "default";
 export default {
-  name: "Home",
-  data: () => ({
-    drawerData: [
-      {
-        name: "Nuevo cliente",
-        icon: "mdi-newspaper-plus",
-        to: "/newclient"
-      },
-      {
-        name: "Nuevo documento",
-        icon: "mdi-file-document",
-        to: "/newproteccion"
-      },
-      {
-        name: "Editar documento",
-        icon: "mdi-file-document-edit",
-        to: "/editclient"
-      }
-    ],
-    drawer: false
-  }),
-  methods: {
-    logout() {
-      this.$router.push("/");
-      localStorage.clear();
-    }
-  },
+  name: "App",
   computed: {
     layout() {
       return (this.$route.meta.layout || defaultLayout) + "-layout";
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "lodash": "^4.17.19",
     "signature_pad": "^3.0.0-beta.3",
     "vue": "^2.6.11",
